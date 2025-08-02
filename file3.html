@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AWS Quiz Competition</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            color: #333;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #ff9900;
+        }
+        .quiz-box {
+            max-width: 700px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .question {
+            margin-bottom: 15px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            font-weight: bold;
+            color: green;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>AWS Quiz Competition</h1>
+
+    <div class="quiz-box">
+        <form id="quizForm">
+
+            <div class="question">
+                <p><strong>1. What does AWS stand for?</strong></p>
+                <input type="radio" name="q1" value="a"> A. Advanced Web Solutions<br>
+                <input type="radio" name="q1" value="b"> B. Amazon Web Services<br>
+                <input type="radio" name="q1" value="c"> C. Automated Web System<br>
+            </div>
+
+            <div class="question">
+                <p><strong>2. Which AWS service is used for storing data?</strong></p>
+                <input type="radio" name="q2" value="a"> A. EC2<br>
+                <input type="radio" name="q2" value="b"> B. Lambda<br>
+                <input type="radio" name="q2" value="c"> C. S3<br>
+            </div>
+
+            <div class="question">
+                <p><strong>3. Which service provides virtual servers in AWS?</strong></p>
+                <input type="radio" name="q3" value="a"> A. EC2<br>
+                <input type="radio" name="q3" value="b"> B. CloudFront<br>
+                <input type="radio" name="q3" value="c"> C. RDS<br>
+            </div>
+
+            <div class="question">
+                <p><strong>4. What is the pricing model of AWS?</strong></p>
+                <input type="radio" name="q4" value="a"> A. Monthly Subscription<br>
+                <input type="radio" name="q4" value="b"> B. Pay-as-you-go<br>
+                <input type="radio" name="q4" value="c"> C. Fixed Annual Fee<br>
+            </div>
+
+            <div class="question">
+                <p><strong>5. Which AWS service is used for databases?</strong></p>
+                <input type="radio" name="q5" value="a"> A. RDS<br>
+                <input type="radio" name="q5" value="b"> B. Lambda<br>
+                <input type="radio" name="q5" value="c"> C. CloudFront<br>
+            </div>
+
+            <button type="button" onclick="checkAnswers()">Submit</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            var score = 0;
+            var total = 5;
+
+            var q1 = document.querySelector('input[name="q1"]:checked');
+            var q2 = document.querySelector('input[name="q2"]:checked');
+            var q3 = document.querySelector('input[name="q3"]:checked');
+            var q4 = document.querySelector('input[name="q4"]:checked');
+            var q5 = document.querySelector('input[name="q5"]:checked');
+
+            if (q1 && q1.value == 'b') { score++; }
+            if (q2 && q2.value == 'c') { score++; }
+            if (q3 && q3.value == 'a') { score++; }
+            if (q4 && q4.value == 'b') { score++; }
+            if (q5 && q5.value == 'a') { score++; }
+
+            document.getElementById('result').innerHTML = "Your Score: " + score + "/" + total;
+        }
+    </script>
+
+</body>
+</html>
